@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -17,10 +16,11 @@ body {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* Header */
 header {
   background-color: #003049;
   padding: 8px 0;
@@ -48,7 +48,6 @@ header .container {
   line-height: 1;
 }
 
-/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -70,7 +69,6 @@ nav ul li a:hover {
   color: #fff;
 }
 
-/* Hero */
 .hero {
   background: url('./images/pyramids.jpg') no-repeat center center/cover;
   height: 90vh;
@@ -125,7 +123,6 @@ nav ul li a:hover {
   background-color: #a1784b;
 }
 
-/* Divider */
 .divider {
   background-color: #000;
   color: #FFD700;
@@ -150,7 +147,6 @@ nav ul li a:hover {
   }
 }
 
-/* Services */
 .services {
   padding: 60px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -175,13 +171,13 @@ nav ul li a:hover {
   flex-wrap: wrap;
 }
 
-/* Cards */
 .card {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-  flex: 1 1 30%;
+  flex: 1 1 320px;
   max-width: 320px;
+  min-width: 280px;
   padding: 20px;
   transition: transform 0.3s ease;
 }
@@ -192,6 +188,7 @@ nav ul li a:hover {
 
 .card img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
 }
@@ -208,7 +205,6 @@ nav ul li a:hover {
   line-height: 1.4;
 }
 
-/* User Reviews Section */
 .user-reviews {
   background-color: #fff8e7;
   padding: 60px 0;
@@ -243,7 +239,6 @@ nav ul li a:hover {
   margin-bottom: 40px;
 }
 
-/* Review Form */
 #reviewForm {
   max-width: 450px;
   margin: 0 auto 40px auto;
@@ -287,7 +282,6 @@ nav ul li a:hover {
   background-color: #a1784b;
 }
 
-/* Star Rating Styles for Review Form */
 .star-rating {
   direction: rtl;
   font-size: 2rem;
@@ -315,7 +309,6 @@ nav ul li a:hover {
   color: #C19A6B;
 }
 
-/* Reviews List */
 #reviewList {
   max-width: 700px;
   margin: 0 auto;
@@ -345,7 +338,6 @@ nav ul li a:hover {
   font-size: 1.3rem;
 }
 
-/* About */
 .about {
   padding: 60px 0;
   max-width: 900px;
@@ -367,7 +359,6 @@ nav ul li a:hover {
   color: #444;
 }
 
-/* Footer */
 footer {
   background-color: #003049;
   color: #F4E2D8;
@@ -381,7 +372,6 @@ footer p {
   margin: 5px 0;
 }
 
-/* Responsive tweaks */
 @media (max-width: 900px) {
   .service-cards {
     flex-direction: column;
@@ -404,10 +394,50 @@ footer p {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    height: 60vh;
+  }
+
   .hero-content h1 {
     font-size: 2.2rem;
   }
+
   .hero-content p {
     font-size: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-cards {
+    gap: 15px;
+  }
+
+  .card {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  #reviewForm button {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  nav ul li a {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
   }
 }
