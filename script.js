@@ -1,41 +1,73 @@
-let reviewCount = 334; // Starting from your initial count
+const stars = document.querySelectorAll(".stars span");
+const ratingInput = document.getElementById("ratingValue");
+const form = document.getElementById("reviewForm");
+const reviewList = document.getElementById("reviewList");
 
-document.getElementById("reviewForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+const modal = document.getElementById("reviewModal");
+const openBtn = document.getElementById("openReviewsBtn");
+const closeBtn = document.querySelector(".close-btn");
 
-  const rating = document.querySelector('input[name="rating"]:checked');
-  const reviewText = document.getElementById("reviewText").value.trim();
+stars.forEach((star) => {
+  star.addEventListener("mouseover", () => {
+    resetStars();
+    highlightStars(star.dataset.value);
+  });
 
-  if (!rating || !reviewText) {
-    alert("Please select a star rating and write your review.");
-    return;
-  }
+  star.addEventListener("mouseout", resetStars);
 
-  // Create stars string with filled and empty stars
-  const stars = "★".repeat(rating.value) + "☆".repeat(5 - rating.value);
-
-  // Create a new review card element
-  const reviewCard = document.createElement("div");
-  reviewCard.classList.add("review-card");
-  reviewCard.innerHTML = `
-    <div class="review-stars">${stars}</div>
-    <p class="review-text">${reviewText}</p>
-  `;
-
-  // Append the new review to the review list
-  document.getElementById("reviewList").appendChild(reviewCard);
-
-  // Increase and update the review count
-  reviewCount++;
-  document.getElementById("reviewCount").textContent = `${reviewCount} reviews`;
-
-  // Clear the form
-  this.reset();
-
-  // Make sure the reviews container is visible
-  document.getElementById("reviewsContainer").classList.remove("hidden");
+  star.addEventListener("click", () => {
+    ratingInput.value = star.dataset.value;
+    selectStars(star.dataset.value);
+  });
 });
 
-document.getElementById("reviewBadge").addEventListener("click", function () {
-  document.getElementById("reviewsContainer").classList.toggle("hidden");
+function highlightStars(rating) {
+  stars.forEach((star) => {
+    if (star.dataset.value <= rating) {
+      star.classList.add("hovered");
+    }
+  });
+}
+
+function resetStars() {
+  stars.forEach((star) => star.classList.remove("hovered"));
+}
+
+function selectStars(rating) {
+  stars.forEach((star) => {
+    star.classList.remove("selected");
+    if (star.dataset.value <= rating) {
+      star.classList.add("selected");
+    }
+  });
+}
+
+// Open modal
+openBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+});
+
+// Close modal
+closeBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Submit new review
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const rating = ratingInput.value;
+  const text = document.getElementById("reviewText").value;
+
+  if (rating && text) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div>Rating: ${"★".repeat(rating)}${"☆".repeat(
+      5 - rating
+    )}</div><p>${text}</p>`;
+    reviewList.prepend(card);
+
+    form.reset();
+    selectStars(0);
+  }
 });
