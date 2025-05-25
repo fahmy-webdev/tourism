@@ -36,7 +36,8 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0; /* Increased top and bottom padding to make menu bar taller */
+  padding: 20px 0; /* Taller menu bar */
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
 .logo {
@@ -46,14 +47,16 @@ header .container {
   text-transform: uppercase;
   color: #F4E2D8;
   line-height: 1;
-  margin-left: -300px; /* Pushes logo a bit more to the left */
+  /* Removed fixed negative margin-left for better responsiveness */
 }
-
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap; /* wrap menu items on smaller screens */
+  justify-content: flex-end;
+  flex: 1; /* take remaining space */
 }
 
 nav ul li a {
@@ -64,7 +67,6 @@ nav ul li a {
   font-size: 25px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  margin-left: 10px;
 }
 
 nav ul li a:hover {
@@ -96,6 +98,7 @@ nav ul li a:hover {
   position: relative;
   z-index: 2;
   max-width: 700px;
+  margin: 0 1rem;
 }
 
 .hero-content h1 {
@@ -167,20 +170,18 @@ nav ul li a:hover {
   color: #003049;
 }
 
+/* Changed from flex to grid for better responsiveness */
 .service-cards {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
 .card {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-  flex: 1 1 320px;
-  max-width: 320px;
-  min-width: 280px;
   padding: 20px;
   transition: transform 0.3s ease;
 }
@@ -375,15 +376,18 @@ footer p {
   margin: 5px 0;
 }
 
+/* Media Queries */
+
 @media (max-width: 900px) {
   .service-cards {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    padding: 0;
   }
 
   nav ul {
     justify-content: center;
     flex-wrap: wrap;
+    flex: unset;
   }
 
   .review-buttons {
@@ -393,6 +397,10 @@ footer p {
   .review-buttons button {
     width: 100%;
     max-width: 250px;
+  }
+
+  header .container {
+    justify-content: center;
   }
 }
 
