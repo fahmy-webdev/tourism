@@ -36,17 +36,19 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
+  padding: 20px 0; /* Increased top and bottom padding to make menu bar taller */
 }
 
 .logo {
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 40px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #F4E2D8;
   line-height: 1;
+  margin-left: -300px; /* Pushes logo a bit more to the left */
 }
+
 
 nav ul {
   list-style: none;
@@ -59,9 +61,10 @@ nav ul li a {
   color: #F4E2D8;
   font-weight: 600;
   padding: 5px 8px;
-  font-size: 0.85rem;
+  font-size: 25px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  margin-left: 10px;
 }
 
 nav ul li a:hover {
