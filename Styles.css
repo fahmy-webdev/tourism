@@ -264,7 +264,7 @@ textarea {
 button {
   margin-top: 10px;
   padding: 10px 20px;
-  background: #222;
+  background-color: #C19A6B;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -430,6 +430,7 @@ footer p {
   #reviewForm button {
     width: 100%;
     padding: 12px 0;
+    
   }
 
   nav ul li a {
