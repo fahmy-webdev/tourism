@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frontiana - Explore Egypt</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Frontiana</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Tours</a></li>
+          <li><a href="#about">About-us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Walk Through Egypt’s History</h1>
+      <p>Explore the land of Pharaohs, pyramids, and timeless beauty.</p>
+      <a href="#services" class="btn-primary">Start Your Journey</a>
+    </div>
+  </section>
+
+  <section class="divider">
+    <h2>Frontiana</h2>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Egypt Tour Highlights</h2>
+      <div class="service-cards">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg" alt="Giza Pyramids" />
+          <h3>Pyramids of Giza</h3>
+          <p>Step into history with guided tours of the ancient wonders of the world.</p>
+        </div>
+        <div class="card">
+          <img src="./images/A-rexfeatures_843356a_f97hsm.webp" alt="Nile Cruises" />
+          <h3>Nile River Cruise</h3>
+          <p>Relax on a luxury cruise along the life-giving Nile, from Luxor to Aswan.</p>
+        </div>
+        <div class="card">
+          <img src="./images/temple.jpeg" alt="Temples Tour" />
+          <h3>Temples & Museums</h3>
+          <p>Visit Karnak, Luxor, the Egyptian Museum and discover treasures of the past.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2>Traveler Reviews</h2>
+
+      <!-- Review Badge (like Feefo) -->
+      <div id="reviewBadge" class="review-badge" style="cursor:pointer;">
+        ★★★★★ <span id="reviewCount">334 reviews</span>
+      </div>
+
+      <!-- Container wrapping both the review list and form -->
+      <div id="reviewsContainer" class="hidden">
+        <!-- Review List -->
+        <div class="review-cards" id="reviewList">
+          <!-- Reviews will be added here dynamically -->
+        </div>
+
+        <!-- Review Form -->
+        <form id="reviewForm">
+          <fieldset class="star-rating">
+            <legend>Rate your experience:</legend>
+
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="5 stars">★</label>
+
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="4 stars">★</label>
+
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="3 stars">★</label>
+
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="2 stars">★</label>
+
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" title="1 star">★</label>
+          </fieldset>
+
+          <textarea name="review" id="reviewText" placeholder="Write your review..." required></textarea>
+
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2>Why Frontiana?</h2>
+      <p>
+        Frontiana is your gateway to authentic Egyptian adventures. With expert local guides and customized experiences, we bring you closer to the real soul of Egypt — its people, heritage, and magic.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <p>📍 Giza, Egypt | 📧 info@frontiana.com | ☎️ +20 123 456 7890</p>
+      <p>&copy; 2025 Frontiana Egypt. Made with pride in the land of Pharaohs.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
