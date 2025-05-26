@@ -1,0 +1,288 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: 100vh; /* ensure full viewport height */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FAF3E0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* keep overflow hidden as requested */
+}
+
+.container {
+  display: flex;
+  width: 900px;
+  /* Remove fixed max-height to allow flexible height */
+  /* max-height: 600px; */
+  margin: 25px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+
+  flex-grow: 1; /* fill available space, push footer down */
+  min-height: 0; /* fix flexbox overflow bug */
+}
+
+/* Left side: image or brand */
+.left-panel {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Optional overlay to soften image */
+.left-panel::after {
+  content: "";
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(193,154,107,0.4); /* your brand color with opacity */
+  mix-blend-mode: multiply;
+}
+
+/* Right side: login form */
+.right-panel {
+  flex: 1;
+  padding: 25px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo top-left */
+.logo {
+  font-weight: 900;
+  font-size: 36px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C19A6B;
+  margin-bottom: 40px;
+  user-select: none;
+}
+
+/* Login form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 14px 16px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.8px solid #ccc;
+  transition: border-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #C19A6B;
+  box-shadow: 0 0 8px #C19A6B;
+}
+
+button.btn-primary {
+  background-color: #C19A6B;
+  color: white;
+  font-weight: 700;
+  padding: 16px 0;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button.btn-primary:hover {
+  background-color: #a1784b;
+}
+
+.signup-text {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #666;
+}
+
+.signup-text a {
+  color: #C19A6B;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+  color: #a1784b;
+}
+
+/* Footer styles - full width */
+footer {
+  width: 100%;
+  background-color: #C19A6B;
+  color: white;
+  text-align: center;
+  padding: 12px 15px; /* reduced padding to lower footer height */
+  font-size: 0.9rem;
+  user-select: none;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+/* New inner container for footer to avoid using main container styles */
+footer .footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+footer a {
+  color: #f0e6d2;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f8f3e9;
+}
+
+/* ...existing code... */
+
+/* Responsive: Medium screens */
+/* ...existing code... */
+
+/* Allow scrolling on small screens */
+/* ...existing code... */
+
+@media (max-width: 850px) {
+  html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+  body {
+    display: block;
+    overflow: auto;
+  }
+  .container {
+    flex-direction: column;
+    width: 98vw;
+    min-width: 0;
+    margin: 16px auto;
+    box-shadow: none;
+    border-radius: 0;
+    min-height: unset;
+    height: auto;
+  }
+  .left-panel {
+    height: 180px;
+    min-height: 120px;
+    flex: none;
+    border-radius: 0;
+  }
+  .right-panel {
+    padding: 24px 8vw;
+    min-height: unset;
+  }
+  footer .footer-container {
+    max-width: 100vw;
+    padding: 0 10px;
+  }
+}
+
+/* ...existing code... */@media (max-width: 850px) {
+  html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto; /* Enable scrolling */
+  }
+  body {
+    display: block; /* Remove flex to allow normal flow */
+    overflow: auto;
+  }
+  .container {
+    min-height: unset;
+    height: auto;
+  }
+}
+
+/* ...existing code... */
+
+/* Responsive: Small screens */
+@media (max-width: 600px) {
+  .container {
+    width: 100vw;
+    margin: 0;
+    min-width: 0;
+  }
+  .left-panel {
+    height: 120px;
+    min-height: 80px;
+    background-position: center 30%;
+  }
+  .right-panel {
+    padding: 16px 6vw;
+  }
+  .logo {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  form {
+    gap: 8px;
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px 12px;
+    font-size: 0.98rem;
+  }
+  button.btn-primary {
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+  .signup-text {
+    font-size: 0.85rem;
+    margin-top: 18px;
+  }
+  footer .footer-container {
+    padding: 0 8px;
+    font-size: 0.8rem;
+  }
+  footer {
+    padding: 8px 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+  .right-panel {
+    padding: 10px 2vw;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+}
+
+/* ...existing code... */

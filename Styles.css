@@ -36,8 +36,8 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0; /* Taller menu bar */
-  flex-wrap: wrap; /* allow wrapping on small screens */
+  padding: 20px 0;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -47,16 +47,15 @@ header .container {
   text-transform: uppercase;
   color: #F4E2D8;
   line-height: 1;
-  /* Removed fixed negative margin-left for better responsiveness */
 }
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  flex-wrap: wrap; /* wrap menu items on smaller screens */
+  flex-wrap: wrap;
   justify-content: flex-end;
-  flex: 1; /* take remaining space */
+  flex: 1;
 }
 
 nav ul li a {
@@ -170,7 +169,6 @@ nav ul li a:hover {
   color: #003049;
 }
 
-/* Changed from flex to grid for better responsiveness */
 .service-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -430,7 +428,6 @@ footer p {
   #reviewForm button {
     width: 100%;
     padding: 12px 0;
-    
   }
 
   nav ul li a {
@@ -445,4 +442,85 @@ footer p {
   .hero-content p {
     font-size: 0.9rem;
   }
+}
+
+/* Ultra-responsive tweaks for extra small screens */
+@media (max-width: 375px) {
+  .container {
+    width: 99vw;
+    padding: 0 2vw;
+  }
+  .hero-content h1 {
+    font-size: 1.2rem;
+  }
+  .hero-content p {
+    font-size: 0.8rem;
+  }
+  .btn-primary {
+    padding: 10px 8px;
+    font-size: 0.95rem;
+  }
+  .card {
+    padding: 10px 4px;
+    font-size: 0.95rem;
+  }
+  .about h2,
+  .services h2 {
+    font-size: 1.2rem;
+  }
+  nav ul li a {
+    font-size: 0.7rem;
+    padding: 3px 4px;
+  }
+  footer {
+    font-size: 0.7rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+  .hero-content h1 {
+    font-size: 1rem;
+  }
+  .about h2,
+  .services h2 {
+    font-size: 1rem;
+  }
+  .card {
+    font-size: 0.9rem;
+  }
+}
+
+/* General improvements for all small screens */
+@media (max-width: 600px) {
+  .about,
+  .services {
+    padding: 30px 0;
+  }
+  .about h2,
+  .services h2 {
+    font-size: 1.4rem;
+  }
+  .card {
+    padding: 12px 6px;
+  }
+  .review-cards .card {
+    font-size: 0.9rem;
+  }
+  .modal-content {
+    padding: 10px 2vw;
+    max-width: 98vw;
+  }
+  .scrollable-list {
+    max-height: 40vh;
+  }
+}
+
+/* Make sure nothing overflows horizontally */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
