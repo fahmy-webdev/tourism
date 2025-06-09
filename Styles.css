@@ -202,10 +202,27 @@ nav ul li a:hover {
 }
 
 .card p {
-  font-weight: 300;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 15px;
   line-height: 1.4;
+    color: #000;
+
 }
+.btn-book {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #C19A6B;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.btn-book:hover {
+  background-color: #C19A6B;
+}
+
 
 .reviews {
   background: #f9f9f9;
